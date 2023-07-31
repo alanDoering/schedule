@@ -24,24 +24,6 @@ namespace NewSchedule
     protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
     /// <summary>
-    /// tblTop control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Table tblTop;
-
-    /// <summary>
-    /// topLeft control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.TableCell topLeft;
-
-    /// <summary>
     /// btnArrowLeft control.
     /// </summary>
     /// <remarks>
@@ -69,13 +51,13 @@ namespace NewSchedule
     protected global::System.Web.UI.WebControls.ImageButton btnArrowRight;
 
     /// <summary>
-    /// topRight control.
+    /// lblTitle control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TableCell topRight;
+    protected global::System.Web.UI.WebControls.Label lblTitle;
 
     /// <summary>
     /// tblMonth control.
@@ -499,5 +481,14 @@ namespace NewSchedule
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblHowToBook;
+
+    /// <summary>
+    /// btnAdmin control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button btnAdmin;
   }
 }

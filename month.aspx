@@ -8,19 +8,17 @@
 <body>
   <form id="form1" runat="server">
     <div id="topbar">
-      <asp:Table ID="tblTop" runat="server">
-        <asp:TableRow runat="server">
-          <asp:TableCell ID="topLeft" runat="server">
-            <asp:ImageButton ID="btnArrowLeft" runat="server" ImageUrl="Images/Arrow-Left.png" OnClick="ArrowLeft_Clicked"/>
-            &nbsp;
-            <asp:Label ID="lblViewDate" runat="server" Text="view date"/>
-            &nbsp;
-            <asp:ImageButton ID="btnArrowRight" runat="server" ImageUrl="Images/Arrow-Right.png" OnClick="ArrowRight_Clicked" />
-          </asp:TableCell>
-          <asp:TableCell ID="topRight" runat="server">
-          </asp:TableCell>
-        </asp:TableRow>
-      </asp:Table>
+      <div id="topLeft">
+        <asp:ImageButton ID="btnArrowLeft" runat="server" ImageUrl="Images/Arrow-Left.png" OnClick="ArrowLeft_Clicked"/>
+        &nbsp;
+        <asp:Label ID="lblViewDate" runat="server" Text="view date"/>
+        &nbsp;
+        <asp:ImageButton ID="btnArrowRight" runat="server" ImageUrl="Images/Arrow-Right.png" OnClick="ArrowRight_Clicked" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="lblTitle" runat="server" Text="view date"/>
+      </div>
+      <div ID="topRight">
+      </div>
     </div>
     <asp:Table ID="tblMonth" runat="server" CellPadding="0" CellSpacing="0">
       <asp:TableHeaderRow ID="tblHeader" runat="server" width="100%">
@@ -185,7 +183,6 @@
         </asp:TableCell>
       </asp:TableRow>
     </asp:Table>
-    <br />
     <div ID="divschedule">
       <asp:Label ID="lblSchedule" runat="server" Text="Label">
         Schedule
@@ -194,6 +191,8 @@
       <asp:ListBox ID="lstSchedule" runat="server" OnSelectedIndexChanged="lstSchedule_Clicked" AutoPostBack="True"></asp:ListBox>
       <br />
       <asp:Label ID="lblHowToBook" runat="server">Click on a time slot to begin booking an appointment.</asp:Label>
+      <br/><br/>
+      <asp:Button ID="btnAdmin" runat="server" Text="Admin" OnClick="btnAdmin_Clicked" />
     </div>
     </form>
 </body>

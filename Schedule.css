@@ -21,22 +21,6 @@
   background-color: #C2D9F0;
   border-bottom: 1px solid black;
 }
-#topLeft{
-  text-align:left;
-  height: 1em;
-}
-#topright {
-  text-align: right;
-  height: 1em;
-}
-#btnArrowLeft, #btnArrowRight {
-  height: 2em;
-}
-#lblViewDate{
-  font-size: 1em;
-  position: relative;
-  top: -4px;
-}
 #tblMonth {
   padding: 0;
   margin: 0;
@@ -61,5 +45,55 @@
 #lblSchedule {
   font-weight: bold;
 }
-#lblHowToBook {
+#btnArrowLeft, #btnArrowRight {
+  height: 1.8em;
+  position: relative;
+  top: 4px;
+}
+
+#lblViewDate {
+  font-size: 1em;
+}
+
+#topLeft {
+  display: inline;
+  padding-left: 50px;
+  text-align: left;
+}
+
+#topRight {
+  display: inline;
+  text-align: right;
+  width: 8%;
+  position: relative;
+  top: 5px;
+}
+
+#lblViewDate, #lblTitle {
+  font-size: 0.8em;
+}
+#btnAdmin {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  html,body {
+    font-size: 2em;
+  }
+  #btnArrowLeft, #btnArrowRight {
+    height: 3.2em;
+    position: relative;
+    top: 4px;
+  }
+  #btnAdmin {
+    font-size: 0.8em;
+  }
+  #lblSchedule, #lblHowToBook {
+    font-size: 0.8em;
+  }
+  #lstSchedule {
+    height: 30%;
+  }
 }

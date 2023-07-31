@@ -53,6 +53,7 @@ namespace NewSchedule
         lstSchedule.Visible = false;
         sqlConn = new SqlConnection("Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
+        lblTitle.Text = $"{provider}'s Schedule";
         fillMonth(dtView);
         fillSchedule(dtView);
         lblHowToBook.Text = $"Click on a highlighted date to see {provider}'s schedule";
@@ -151,6 +152,7 @@ namespace NewSchedule
       }
 
       lstSchedule.SelectedIndex = -1;
+      lstSchedule.Visible = true;
     } // end fillSchedule
 
     private List<CalendarItem> GetScheduleByDay(string provider, DateTime day, string status)
@@ -251,6 +253,11 @@ namespace NewSchedule
       // go to page for booking an appointment
       Response.Redirect($"bookit.aspx?user={provider}&date={date.ToString("yyyyMMdd HH:mm")}");
     } // end lstSchedule_Clicked
+
+    protected void btnAdmin_Clicked(object sender, EventArgs e)
+    {
+      Response.Redirect($"bookit.aspx?user={provider}&date={dtView.ToString()}");
+    }
 
     private struct CalendarItem
     {

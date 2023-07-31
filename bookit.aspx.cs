@@ -21,7 +21,7 @@ namespace NewSchedule
         if (vr != null)
         {
           provider = vr.ToString();
-          if (!string.IsNullOrEmpty(provider))
+          if (string.IsNullOrEmpty(provider))
           {
             Response.Redirect("fatal.aspx?reason=Missing provider name");
             return;
@@ -41,5 +41,10 @@ namespace NewSchedule
       }
       return;
     } // end Page_Load
+
+    protected void btnBack_Clicked(object sender, EventArgs e)
+    {
+      Response.Redirect($"month.aspx?user={provider}");
+    }
   }
 }
