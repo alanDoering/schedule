@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Schedule.master.cs" Inherits="NewSchedule.Schedule" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+  <title>Scheduler</title>
+  <link href="Schedule.css" rel="stylesheet" />
+</head>
+<body>
+  <form ID="form1" runat="server">
+    <asp:Table id="mastertop" runat="server">
+      <asp:TableRow runat="server">
+        <asp:TableCell  ID="topLeft" runat="server">
+          <asp:ImageButton class="arrow" ID="btnLeft" runat="server" ImageUrl="Images/Arrow-Left.png" OnClick="ArrowLeft_Click" />
+          &nbsp;&nbsp;
+          <asp:Label ID="viewdate" runat="server" >Mar, 15, 2024</asp:Label>
+          &nbsp;&nbsp;
+          <asp:ImageButton class="arrow" ID="btnRight" runat="server" ImageUrl="Images/Arrow-Right.png" OnClick="ArrowRight_Click" />
+        </asp:TableCell>
+        <asp:TableCell ID="topRight" runat="server" style="width: 30%; text-align: right;">
+          <asp:Button ID="btnDay" runat="server" Text=" Day " OnClick="btnDay_Clicked" />
+          <asp:Button ID="btnMonth" runat="server" Text="Month" OnClick="btnMonth_Clicked" />
+        </asp:TableCell>
+      </asp:TableRow>
+    </asp:Table>
+    <div ID="master-content">
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+      </asp:ContentPlaceHolder>
+    </div>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+  </form>
+</body>
+</html>
