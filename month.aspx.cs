@@ -38,7 +38,7 @@ namespace NewSchedule
         }
         if (!bProtectDate)
         {
-          // execute 1sttime only
+          // execute 1st time only
           dtView = DateTime.Now;
           vr = Request.QueryString["date"];
           if (vr != null)
