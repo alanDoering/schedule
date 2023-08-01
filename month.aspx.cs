@@ -5,8 +5,10 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.XPath;
 
 namespace NewSchedule
 {
@@ -25,13 +27,13 @@ namespace NewSchedule
         var vr = Request.QueryString["user"];
         if (vr == null)
         {
-          Response.Redirect($"fatal.aspx?reason={"Missing provider name"}");
+          Response.Redirect("fatal.aspx?reason=Missing provider name");
           return;
         }
         provider = vr.ToString();
         if (string.IsNullOrEmpty(provider))
         {
-          Response.Redirect($"fatal.aspx?reason={"Missing provider name"}");
+          Response.Redirect("fatal.aspx?reason=Missing provider name");
           return;
         }
         if (!bProtectDate)
@@ -43,14 +45,15 @@ namespace NewSchedule
           {
             if (!DateTime.TryParse(vr, out dtView))
             {
-              Response.Redirect($"fatal.aspx?reason={"Invalid date"}");
+              Response.Redirect("fatal.aspx?reason=Invalid date");
               return;
             }
           }
           bProtectDate = true;
         }
 
-        lstSchedule.Visible = false;
+        txtScheduleList.Visible = false;
+        txtScheduleList.Attributes.Add("OnClick","txtScheduleList_Clicked");
         sqlConn = new SqlConnection("Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
         lblTitle.Text = $"{provider}'s Schedule";
@@ -64,12 +67,14 @@ namespace NewSchedule
     {
       dtView = dtView.AddMonths(-1);
       lblViewDate.Text = dtView.ToString("MMM, yyyy");
+      fillMonth(dtView);
     } // end ArrowLeft_Clicked
 
     protected void ArrowRight_Clicked(object sender, ImageClickEventArgs e)
     {
       dtView = dtView.AddMonths(1);
       lblViewDate.Text = dtView.ToString("MMM, yyyy");
+      fillMonth(dtView);
     } // end ArrowRight_Clicked
 
     private void fillMonth(DateTime dt)
@@ -107,10 +112,13 @@ namespace NewSchedule
       dtView = dt;
 
       // fill time slots in schedule from 07:00 AM through 12:30 PM
-      lstSchedule.Items.Clear();
+      //lstSchedule.Items.Clear();
+      txtScheduleList.Text = string.Empty;
+      
       for (idx = 0; idx < 34; idx++)
       {
-        lstSchedule.Items.Add((dtSlot.ToString("hh:mm tt")));
+        //lstSchedule.Items.Add((dtSlot.ToString("hh:mm tt")));
+        txtScheduleList.Text += dtSlot.ToString("hh:mm tt") + "\r\n";
         dtSlot = dtSlot.AddMinutes(30);
       }
 
@@ -121,8 +129,9 @@ namespace NewSchedule
         idx = FindSlotIndex(itema.apptTime);
         if (idx >= 0)
         {
-          lstSchedule.Items[idx].Text += " - Available @ " + itema.location;
-          lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#DCFCDC");
+          appendToLine(idx, $" - Available @ {itema.location}");
+          //lstSchedule.Items[idx].Text += " - Available @ " + itema.location;
+          //lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#DCFCDC");
 
         }
       }
@@ -134,8 +143,9 @@ namespace NewSchedule
         idx = FindSlotIndex(itemp.apptTime);
         if (idx >= 0)
         {
-          lstSchedule.Items[idx].Text += " - Pending @ " + itemp.location;
-          lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#EED62B");
+          appendToLine(idx,$" - Pending @ {itemp.location}");
+          //lstSchedule.Items[idx].Text += " - Pending @ " + itemp.location;
+          //lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#EED62B");
         }
       }
 
@@ -146,13 +156,13 @@ namespace NewSchedule
         idx = FindSlotIndex(itemb.apptTime);
         if (idx >= 0)
         {
-          lstSchedule.Items[idx].Text += " - Booked @ " + itemb.location;
-          lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#FF9393");
+          appendToLine(idx, $" - Booked @ {itemb.location}");
+          //lstSchedule.Items[idx].Text += " - Booked @ " + itemb.location;
+          //lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#FF9393");
         }
       }
 
-      lstSchedule.SelectedIndex = -1;
-      lstSchedule.Visible = true;
+      //lstSchedule.SelectedIndex = -1;
     } // end fillSchedule
 
     private List<CalendarItem> GetScheduleByDay(string provider, DateTime day, string status)
@@ -198,15 +208,29 @@ namespace NewSchedule
 
     private int FindSlotIndex(DateTime thyme)
     {
+      string item;
       string t = thyme.ToString("hh:mm tt");
-      string itm;
-      for (int x = 0; x < lstSchedule.Items.Count; x++)
+      string[] lines = txtScheduleList.Text.Split(new Char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+      //for (int x = 0; x < lstSchedule.Items.Count; x++)
+      for (int x=0;x<lines.Length;x++)
       {
-        itm = lstSchedule.Items[x].ToString(); 
-        if (itm.StartsWith(t)) return x;
+        item = lines[x];
+        if (item.Contains(t)) return x;
       }
       return -1;
     } // end FindSlotIndex
+
+    private void appendToLine(int x, string sAddText)
+    {
+      string txt = string.Empty;
+      string[] lines = txtScheduleList.Text.Split(new Char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+      lines[x] = lines[x] + sAddText;
+      foreach (string str in lines)
+      {
+        txt += str + "\r\n";
+      }
+      txtScheduleList.Text = txt;
+    }
 
     protected void tblButton_Clicked(object sender, EventArgs e)
     {
@@ -227,20 +251,20 @@ namespace NewSchedule
       // if date has a schedule, populate lstSchedule
       if (sch.Count < 1)
       {
-        lstSchedule.Visible = false;
+        txtScheduleList.Visible = false;
         lblHowToBook.Text = $"Click on a highlighted date to see {provider}'s schedule";
         return;
       }
-      lstSchedule.Visible = true;
+      txtScheduleList.Visible = true;
       lblHowToBook.Text = "Click on an available time slot to start booking an appointment";
-      lstSchedule.Items.Clear();
+      txtScheduleList.Text=String.Empty;
       if (sch.Count > 0)
       {
         fillSchedule(date);
       }
     } // end tblButton_Clicked
 
-    protected void lstSchedule_Clicked(object sender, EventArgs e)
+    protected void txtScheduleList_Clicked(object sender, EventArgs e)
     {
       string wrk;
       ListBox lb = (ListBox)sender;

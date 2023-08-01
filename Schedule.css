@@ -33,10 +33,11 @@
   color: White;
   font-size: 0.8em;
 }
-#lstSchedule {
+#txtScheduleList {
   margin-left: 12px;
-  width: 300px;
+  width: 420px;
   height: 40%;
+  border: 1px solid black;
 }
 #divschedule {
   text-align: center;
@@ -79,21 +80,17 @@
 }
 
 @media screen and (max-width: 1100px) {
-  html,body {
-    font-size: 2em;
-  }
+  html, body { font-size: 2em; }
+
   #btnArrowLeft, #btnArrowRight {
     height: 3.2em;
     position: relative;
     top: 4px;
   }
-  #btnAdmin {
-    font-size: 0.8em;
-  }
+
+  #btnAdmin { font-size: 0.8em; }
+
   #lblSchedule, #lblHowToBook {
-    font-size: 0.8em;
-  }
-  #lstSchedule {
-    height: 30%;
+     font-size: 0.8em;
   }
 }
