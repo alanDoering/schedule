@@ -57,8 +57,10 @@ namespace NewSchedule
         sqlConn = new SqlConnection("Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
         lblTitle.Text = $"{provider}'s Schedule";
+
         fillMonth(dtView);
         fillSchedule(dtView);
+        rbScheduleList.Visible = false;
         lblHowToBook.Text = $"Click on a highlighted date to see {provider}'s schedule";
       }
     }  // end Page_Load
@@ -297,5 +299,9 @@ namespace NewSchedule
       public DateTime apptTime;
     } // end CalendarItem
 
+    protected void rbScheduleList_Clicked(object sender, EventArgs e)
+    {
+      int i = 0;
+    }
   }
 }

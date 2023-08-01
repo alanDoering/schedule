@@ -33,11 +33,11 @@
   color: White;
   font-size: 0.8em;
 }
-#txtScheduleList {
-  margin-left: 12px;
+#rbScheduleList {
+  border: 1px solid Black;
+  margin-left: 6px;
   width: 420px;
   height: 40%;
-  border: 1px solid black;
 }
 #divschedule {
   text-align: center;
@@ -79,18 +79,22 @@
   margin-right: auto;
 }
 
-@media screen and (max-width: 1100px) {
-  html, body { font-size: 2em; }
-
+/*@media screen and (max-width: 1100px) {
+  html,body {
+    font-size: 2em;
+  }
   #btnArrowLeft, #btnArrowRight {
     height: 3.2em;
     position: relative;
     top: 4px;
   }
-
-  #btnAdmin { font-size: 0.8em; }
-
-  #lblSchedule, #lblHowToBook {
-     font-size: 0.8em;
+  #btnAdmin {
+    font-size: 0.8em;
   }
-}
+  #lblSchedule, #lblHowToBook {
+    font-size: 0.8em;
+  }
+  #rbScheduleList {
+    height: 30%;
+  }
+*/}

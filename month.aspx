@@ -17,7 +17,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblTitle" runat="server" Text="view date"/>
       </div>
-      <div id="topRight">
+      <div ID="topRight">
       </div>
     </div>
     <asp:Table ID="tblMonth" runat="server" CellPadding="0" CellSpacing="0">
@@ -183,15 +183,14 @@
         </asp:TableCell>
       </asp:TableRow>
     </asp:Table>
-    <div id="divschedule">
-      <asp:Label ID="lblSchedule" runat="server" Text="Label">
-        Schedule
-      </asp:Label>
+    <div ID="divschedule">
+      <asp:Label ID="lblSchedule" runat="server" Text="Schedule"/>
+      <asp:RadioButtonList ID="rbScheduleList" runat="server" OnSelectedIndexChanged="rbScheduleList_Clicked" TextAlign="Left">
+        <asp:ListItem Text="ABC" Value="0"></asp:ListItem>
+        <asp:ListItem Text="DEF" Value="0"></asp:ListItem>
+      </asp:RadioButtonList>
       <br/>
-
       <br />
-      <asp:TextBox ID="txtScheduleList" runat="server" TextMode="MultiLine"></asp:TextBox>
-      <br/>
       <asp:Label ID="lblHowToBook" runat="server">Click on a time slot to begin booking an appointment.</asp:Label>
       <br/><br/>
       <asp:Button ID="btnAdmin" runat="server" Text="Admin" OnClick="btnAdmin_Clicked" />
