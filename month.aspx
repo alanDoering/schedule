@@ -4,6 +4,13 @@
 <head runat="server">
   <title>Schedule</title>
   <link href="Schedule.css" rel="stylesheet" />
+  <script type="text/javascript">
+    function tblEvent() {
+      var tbl = document.getElementById("tblSchedule");
+      var v = tbl.Rows[0].Cells[0].innerText;
+      alert('v;
+    }  
+  </script>
 </head>
 <body>
   <form id="form1" runat="server">
@@ -17,7 +24,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblTitle" runat="server" Text="view date"/>
       </div>
-      <div ID="topRight">
+      <div id="topRight">
       </div>
     </div>
     <asp:Table ID="tblMonth" runat="server" CellPadding="0" CellSpacing="0">
@@ -183,13 +190,21 @@
         </asp:TableCell>
       </asp:TableRow>
     </asp:Table>
-    <div ID="divschedule">
+    <div id="divschedule">
       <asp:Label ID="lblSchedule" runat="server" Text="Schedule"/>
-      <asp:RadioButtonList ID="rbScheduleList" runat="server" OnSelectedIndexChanged="rbScheduleList_Clicked" TextAlign="Left">
-        <asp:ListItem Text="ABC" Value="0"></asp:ListItem>
-        <asp:ListItem Text="DEF" Value="0"></asp:ListItem>
-      </asp:RadioButtonList>
       <br/>
+      <asp:Table ID="tblSchedule" runat="server" Style="text-align: left; vertical-align: top" CellPadding="0" CellSpacing="0" Height="30%">
+        <asp:TableRow runat="server">
+          <asp:TableCell runat="server">
+            <asp:Button ID="Button1" runat="server" Text="07:00 AM - Available @ Here" />
+          </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+          <asp:TableCell runat="server">
+            <asp:Button ID="Button2" runat="server" Text="07:00 AM - Available @ There" />
+          </asp:TableCell>
+        </asp:TableRow>
+      </asp:Table>
       <br />
       <asp:Label ID="lblHowToBook" runat="server">Click on a time slot to begin booking an appointment.</asp:Label>
       <br/><br/>
