@@ -184,11 +184,12 @@
       </asp:TableRow>
     </asp:Table>
     <div ID="divschedule">
-      <asp:Label ID="lblSchedule" runat="server" Text="Label">
-        Schedule
-      </asp:Label>
+      <asp:Label ID="lblSchedule" runat="server" Text="Schedule"/>
+      <asp:RadioButtonList ID="rbScheduleList" runat="server" OnSelectedIndexChanged="rbScheduleList_Clicked" TextAlign="Left">
+        <asp:ListItem Text="ABC" Value="0"></asp:ListItem>
+        <asp:ListItem Text="DEF" Value="0"></asp:ListItem>
+      </asp:RadioButtonList>
       <br/>
-      <asp:ListBox ID="lstSchedule" runat="server" OnSelectedIndexChanged="lstSchedule_Clicked" AutoPostBack="True"></asp:ListBox>
       <br />
       <asp:Label ID="lblHowToBook" runat="server">Click on a time slot to begin booking an appointment.</asp:Label>
       <br/><br/>

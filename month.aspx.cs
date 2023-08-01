@@ -50,12 +50,14 @@ namespace NewSchedule
           bProtectDate = true;
         }
 
-        lstSchedule.Visible = false;
+        //lstSchedule.Visible = false;
         sqlConn = new SqlConnection("Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
         lblTitle.Text = $"{provider}'s Schedule";
+
         fillMonth(dtView);
         fillSchedule(dtView);
+        rbScheduleList.Visible = false;
         lblHowToBook.Text = $"Click on a highlighted date to see {provider}'s schedule";
       }
     }  // end Page_Load
@@ -107,10 +109,10 @@ namespace NewSchedule
       dtView = dt;
 
       // fill time slots in schedule from 07:00 AM through 12:30 PM
-      lstSchedule.Items.Clear();
+      rbScheduleList.Items.Clear();
       for (idx = 0; idx < 34; idx++)
       {
-        lstSchedule.Items.Add((dtSlot.ToString("hh:mm tt")));
+        rbScheduleList.Items.Add((dtSlot.ToString("hh:mm tt")));
         dtSlot = dtSlot.AddMinutes(30);
       }
 
@@ -121,8 +123,8 @@ namespace NewSchedule
         idx = FindSlotIndex(itema.apptTime);
         if (idx >= 0)
         {
-          lstSchedule.Items[idx].Text += " - Available @ " + itema.location;
-          lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#DCFCDC");
+          rbScheduleList.Items[idx].Text += " - Available @ " + itema.location;
+          rbScheduleList.Items[idx].Attributes.Add("Style", "background-color:#DCFCDC");
 
         }
       }
@@ -134,8 +136,8 @@ namespace NewSchedule
         idx = FindSlotIndex(itemp.apptTime);
         if (idx >= 0)
         {
-          lstSchedule.Items[idx].Text += " - Pending @ " + itemp.location;
-          lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#EED62B");
+          rbScheduleList.Items[idx].Text += " - Pending @ " + itemp.location;
+          rbScheduleList.Items[idx].Attributes.Add("Style", "background-color:#EED62B");
         }
       }
 
@@ -146,13 +148,12 @@ namespace NewSchedule
         idx = FindSlotIndex(itemb.apptTime);
         if (idx >= 0)
         {
-          lstSchedule.Items[idx].Text += " - Booked @ " + itemb.location;
-          lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#FF9393");
+          rbScheduleList.Items[idx].Text += " - Booked @ " + itemb.location;
+          rbScheduleList.Items[idx].Attributes.Add("Style", "background-color:#FF9393");
         }
       }
 
-      lstSchedule.SelectedIndex = -1;
-      lstSchedule.Visible = true;
+      rbScheduleList.SelectedIndex = -1;
     } // end fillSchedule
 
     private List<CalendarItem> GetScheduleByDay(string provider, DateTime day, string status)
@@ -200,9 +201,9 @@ namespace NewSchedule
     {
       string t = thyme.ToString("hh:mm tt");
       string itm;
-      for (int x = 0; x < lstSchedule.Items.Count; x++)
+      for (int x = 0; x < rbScheduleList.Items.Count; x++)
       {
-        itm = lstSchedule.Items[x].ToString(); 
+        itm = rbScheduleList.Items[x].ToString(); 
         if (itm.StartsWith(t)) return x;
       }
       return -1;
@@ -227,13 +228,13 @@ namespace NewSchedule
       // if date has a schedule, populate lstSchedule
       if (sch.Count < 1)
       {
-        lstSchedule.Visible = false;
+        rbScheduleList.Visible = false;
         lblHowToBook.Text = $"Click on a highlighted date to see {provider}'s schedule";
         return;
       }
-      lstSchedule.Visible = true;
+      rbScheduleList.Visible = true;
       lblHowToBook.Text = "Click on an available time slot to start booking an appointment";
-      lstSchedule.Items.Clear();
+      rbScheduleList.Items.Clear();
       if (sch.Count > 0)
       {
         fillSchedule(date);
@@ -273,5 +274,9 @@ namespace NewSchedule
       public DateTime apptTime;
     } // end CalendarItem
 
+    protected void rbScheduleList_Clicked(object sender, EventArgs e)
+    {
+      int i = 0;
+    }
   }
 }
