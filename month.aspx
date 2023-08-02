@@ -8,7 +8,7 @@
     function tblEvent() {
       var tbl = document.getElementById("tblSchedule");
       var v = tbl.Rows[0].Cells[0].innerText;
-      alert('v;
+      alert('v');
     }  
   </script>
 </head>
@@ -190,27 +190,10 @@
         </asp:TableCell>
       </asp:TableRow>
     </asp:Table>
-    <div id="divschedule" title="hello">
-      <asp:Label ID="lblSchedule" runat="server" Text="Schedule"/>
-      <br/>
-<%--      <asp:Table ID="tblSchedule" runat="server" Style="text-align: left; vertical-align: top" CellPadding="0" CellSpacing="0" Height="30%">
-        <asp:TableRow runat="server">
-          <asp:TableCell runat="server">
-            <asp:Button ID="Button1" runat="server" Text="07:00 AM - Available @ Here" />
-          </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow runat="server">
-          <asp:TableCell runat="server">
-            <asp:Button ID="Button2" runat="server" Text="07:00 AM - Available @ There" />
-          </asp:TableCell>
-        </asp:TableRow>
-      </asp:Table>--%>
-      <asp:GridView ID="grdSchedule" runat="server"></asp:GridView>
-      <br />
-      <asp:Label ID="lblHowToBook" runat="server">Click on a time slot to begin booking an appointment.</asp:Label>
+    <div id="divPickADay">
+      <asp:Label ID="lblPickADay" runat="server"/>
       <br/><br/>
-      <asp:RadioButton ID="RadioButton1" runat="server" />
-      <asp:Button ID="btnAdmin" runat="server" Text="Admin" OnClick="btnAdmin_Clicked" />
+      <asp:Button ID="btnAdmin" runat="server" Text="ADMIN" />
     </div>
     </form>
 </body>

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bookit.aspx" />
+    <Content Include="day.aspx" />
     <Content Include="default.aspx" />
     <Content Include="fatal.aspx" />
     <Content Include="month.aspx" />
@@ -85,6 +86,13 @@
     </Compile>
     <Compile Include="bookit.aspx.designer.cs">
       <DependentUpon>bookit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="day.aspx.cs">
+      <DependentUpon>day.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="day.aspx.designer.cs">
+      <DependentUpon>day.aspx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
