@@ -61,7 +61,6 @@ namespace NewSchedule
           "Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
         lblTitle.Text = $"{provider}'s Schedule";
-
         fillMonth(dtView);
         fillSchedule(dtView);
         lblHowToBook.Text = $"Click on a highlighted date to see {provider}'s schedule";
@@ -73,6 +72,7 @@ namespace NewSchedule
       dtView = dtView.AddMonths(-1);
       lblViewDate.Text = dtView.ToString("MMM, yyyy");
       fillMonth(dtView);
+      fillSchedule(dtView);
     } // end ArrowLeft_Clicked
 
     protected void ArrowRight_Clicked(object sender, ImageClickEventArgs e)
@@ -80,6 +80,7 @@ namespace NewSchedule
       dtView = dtView.AddMonths(1);
       lblViewDate.Text = dtView.ToString("MMM, yyyy");
       fillMonth(dtView);
+      fillSchedule(dtView);
     } // end ArrowRight_Clicked
 
     private void fillMonth(DateTime dt)
@@ -118,6 +119,7 @@ namespace NewSchedule
       TableRow row;
       TableCell cell;
       Button btn;
+      string sFindTime, sSchedTime;
       DateTime dtSlot = new DateTime(dt.Year, dt.Month, dt.Day, 7, 0, 0);
       dtView = dt;
 
@@ -132,8 +134,8 @@ namespace NewSchedule
       {
         cell = new TableCell();
         btn = new Button();
+        btn.CssClass = "SchedButton";
         btn.Text = dtSlot.ToString("hh:mm tt");
-        btn.Width = new Unit("100%");
         cell.Controls.Add(btn);
         cell.Width = new Unit("100%");
         row = new TableRow();
@@ -147,13 +149,29 @@ namespace NewSchedule
       List<CalendarItem> sch = GetScheduleByDay(provider, dt, "A");
       foreach (CalendarItem itema in sch)
       {
-        idx = FindSlotIndex(itema.apptTime);
-        if (idx >= 0)
+        sFindTime = itema.apptTime.ToString("hh:mm tt");
+        // find a matcning slot in te table
+        idx = -1;
+        for (int idxx = 0; idxx< tblSchedule.Rows.Count; idxx++)
         {
-          txt = tblSchedule.Rows[idx].Cells[0].Text +" - Available @ " + itema.location;
-          tblSchedule.Rows[idx].Cells[0].Text = txt;
-          tblSchedule.Rows[idx].BackColor = ColorTranslator.FromHtml("#DCFCDC");
+          row = tblSchedule.Rows[idxx];
+          cell = row.Cells[0];
+          if (!string.IsNullOrEmpty(cell.Text))
+          {
+            sSchedTime = cell.Text.Substring(0, 8);
+            if (sFindTime == sSchedTime)
+            {
+              tblSchedule.Rows[idxx].Cells[0].Text=" - Available @ " + itema.location;
+              tblSchedule.Rows[idxx].BackColor = ColorTranslator.FromHtml("#DCFCDC");
+              break;
+            }
+          }
         }
+      }
+      for (int q=0; q < 15; q++)
+      {
+        string s = tblSchedule.Rows[q].Cells[0].Text;
+        int qq = 0;
       }
 
       //// mark all the pending slots

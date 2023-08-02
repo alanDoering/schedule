@@ -10,6 +10,10 @@
   height: 100%;
   width: 100%;
 }
+.SchedButton{
+  text-align: left !important;
+  width: 100%;
+}
 #form1 {
   height: 100%;
   width: 100%;
@@ -55,17 +59,14 @@
   position: relative;
   top: 4px;
 }
-
 #lblViewDate {
   font-size: 1em;
 }
-
 #topLeft {
   display: inline;
   padding-left: 50px;
   text-align: left;
 }
-
 #topRight {
   display: inline;
   text-align: right;
@@ -73,7 +74,6 @@
   position: relative;
   top: 5px;
 }
-
 #lblViewDate, #lblTitle {
   font-size: 0.8em;
 }
@@ -91,11 +91,9 @@
     position: relative;
     top: 4px;
   }
-
   #btnAdmin { font-size: 1.2em; }
 
   #lblSchedule, #lblHowToBook { font-size: 1.0em; }
-
   #tblSchedule {
     position: relative;
     left: calc(50% - 400px);
