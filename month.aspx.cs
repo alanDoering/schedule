@@ -60,7 +60,7 @@ namespace NewSchedule
         sqlConn = new SqlConnection(
           "Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
-        lblTitle.Text = $"{provider}'s Schedule";
+        lblTitle.Text = $"{provider}'s Calendar";
         fillMonth(dtView);
         //initSchedule(dtView);
         //fillSchedule(dtView);
