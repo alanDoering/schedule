@@ -456,40 +456,13 @@ namespace NewSchedule
     protected global::System.Web.UI.WebControls.Button btn66;
 
     /// <summary>
-    /// lblSchedule control.
+    /// lblPickADay control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblSchedule;
-
-    /// <summary>
-    /// grdSchedule control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.GridView grdSchedule;
-
-    /// <summary>
-    /// lblHowToBook control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblHowToBook;
-
-    /// <summary>
-    /// RadioButton1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+    protected global::System.Web.UI.WebControls.Label lblPickADay;
 
     /// <summary>
     /// btnAdmin control.
