@@ -4,18 +4,11 @@
 <head runat="server">
   <title>Schedule</title>
   <link href="Schedule.css" rel="stylesheet" />
-  <script type="text/javascript">
-    function tblEvent() {
-      var tbl = document.getElementById("tblSchedule");
-      var v = tbl.Rows[0].Cells[0].innerText;
-      alert('v');
-    }  
-  </script>
 </head>
 <body>
   <form id="form1" runat="server">
-    <div id="divTopbar">
-        <asp:Label ID="lblTitle" runat="server" Text="view date"/>
+    <div id="divtopbar">
+        <asp:Label ID="lbltitle" runat="server" Text="view date"/>
         &nbsp;&nbsp;
         <asp:ImageButton ID="btnArrowLeft" runat="server" ImageUrl="Images/Arrow-Left.png" OnClick="ArrowLeft_Clicked"/>
         &nbsp;
@@ -23,175 +16,79 @@
         &nbsp;
         <asp:ImageButton ID="btnArrowRight" runat="server" ImageUrl="Images/Arrow-Right.png" OnClick="ArrowRight_Clicked" />
     </div>
-    <div id="divCalendar">
-      <asp:Table ID="tblMonth" runat="server" CellPadding="0" CellSpacing="0">
-        <asp:TableHeaderRow ID="tblHeader" Class="tblHeader" runat="server" width="100%">
-          <asp:TableHeaderCell runat="server" width="14%">
-            S
-          </asp:TableHeaderCell>
-          <asp:TableHeaderCell runat="server" width="14%">
-            M
-          </asp:TableHeaderCell>
-          <asp:TableHeaderCell runat="server" width="14%">
-            T
-          </asp:TableHeaderCell>
-          <asp:TableHeaderCell runat="server" width="14%">
-            W
-          </asp:TableHeaderCell>
-          <asp:TableHeaderCell runat="server" width="14%">
-            T
-          </asp:TableHeaderCell>
-          <asp:TableHeaderCell runat="server" width="14%">
-            F
-          </asp:TableHeaderCell>
-          <asp:TableHeaderCell runat="server" width="14%">
-            S
-          </asp:TableHeaderCell>
+   <div id="divcalendar">
+      <asp:Table ID="tblMonth" runat="server">
+        <asp:TableHeaderRow CssClass="tblheader" runat="server">
+          <asp:TableHeaderCell runat="server">Sun</asp:TableHeaderCell>
+          <asp:TableHeaderCell runat="server">Mon</asp:TableHeaderCell>
+          <asp:TableHeaderCell runat="server">Tue</asp:TableHeaderCell>
+          <asp:TableHeaderCell runat="server">Wed</asp:TableHeaderCell>
+          <asp:TableHeaderCell runat="server">Thu</asp:TableHeaderCell>
+          <asp:TableHeaderCell runat="server">Fri</asp:TableHeaderCell>
+          <asp:TableHeaderCell runat="server">Sat</asp:TableHeaderCell>
         </asp:TableHeaderRow>
-        <asp:TableRow runat="server" class="tblRow">
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn10" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn11" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn12" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn13" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn14" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn15" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn16" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
+        <asp:TableRow CssClass="tblrow" runat="server">
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button id="btn00" runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button id="btn01" runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button id="btn02" runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button id="btn03" runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button id="btn04" runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button id="btn05" runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button id="btn06" runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow runat="server" class="tblRow">
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn20" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn21" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn22" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn23" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn24" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn25" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn26" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
+        <asp:TableRow CssClass="tblrow" runat="server">
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton"/></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow runat="server" class="tblRow">
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn30" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn31" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn32" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn33" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn34" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn35" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn36" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
+        <asp:TableRow CssClass="tblrow" runat="server">
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow runat="server" class="tblRow">
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn40" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn41" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn42" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn43" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn44" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn45" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn46" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
+        <asp:TableRow CssClass="tblrow" runat="server">
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow runat="server" class="tblRow">
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn50" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn51" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn52" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn53" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn54" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn55" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn56" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
+        <asp:TableRow CssClass="tblrow" runat="server">
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow runat="server" class="tblRow">
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn60" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn61" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn62" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn63" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn64" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn65" runat="server" Text="Button"  OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
-          <asp:TableCell runat="server" width="14%" Height="100%">
-            <asp:Button class="tblButton" ID="btn66" runat="server" Text="Button" OnClick="tblButton_Clicked"/>
-          </asp:TableCell>
+        <asp:TableRow CssClass="tblrow" runat="server">
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
+          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
         </asp:TableRow>
       </asp:Table>
     </div>
-    <div id="divPickADay">
+    <div id="divpickaday">
+      <br />
       <asp:Label ID="lblPickADay" runat="server"/>
       <br/><br/>
-      <asp:Button ID="btnAdmin" runat="server" Text="ADMIN" />
+      <asp:Button ID="btnAdmin" runat="server" Text="ADMIN" OnClick="btnAdmin_Clicked"/>
     </div>
     </form>
 </body>

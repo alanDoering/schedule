@@ -6,7 +6,7 @@
   font-family: calibri, arial, 'sans serif';
   font-size: 1.2em;
 }
-.tblButton {
+.tblbutton {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -21,7 +21,7 @@
   height: 100%;
   width: 100%;
 }
-#divTopbar{
+#divtopbar{
   width: 99%;
   height: 1.4em;
   font-size: 1em;
@@ -30,9 +30,18 @@
   background-color: #C2D9F0;
   border-bottom: 1px solid black;
 }
-#divCalendar {
+#divcalendar {
   width: 99%;
   height: 80%;
+}
+#divpickaday {
+  text-align: center;
+  font-size: 1em;
+}
+#divadmin {
+  width: 99%;
+  height: 100%;
+  text-align: center;
 }
 #tblMonth {
   padding: 0;
@@ -41,19 +50,23 @@
   height: 100%;
   font-size: 1em;
 }
-.tblHeader {
-  height: 1.4em;
+.tblheader {
+  height: 30px;
   background-color: #779AC9;
   color: White;
   font-size: 1em;
 }
-.tblRow {
+.tblrow {
   width: 100%;
   height: 40px;
 }
-#divPickADay {
+.tblcell {
   text-align: center;
-  font-size: 1em;
+  width: 14%;
+  height: 16%;
+}
+#lbltitle {
+  margin-left: 20px;
 }
 #btnArrowLeft, #btnArrowRight {
   height: 1.8em;

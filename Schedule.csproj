@@ -67,10 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin.aspx" />
     <Content Include="bookit.aspx" />
     <Content Include="day.aspx" />
     <Content Include="default.aspx" />
     <Content Include="fatal.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="month.aspx" />
     <Content Include="Images\Arrow-Left.png" />
     <Content Include="Images\Arrow-Right.png" />
@@ -80,6 +82,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="bookit.aspx.cs">
       <DependentUpon>bookit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,6 +116,13 @@
     </Compile>
     <Compile Include="fatal.aspx.designer.cs">
       <DependentUpon>fatal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="month.aspx.cs">
       <DependentUpon>month.aspx</DependentUpon>

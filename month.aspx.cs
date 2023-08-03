@@ -55,15 +55,11 @@ namespace NewSchedule
           bProtectDate = true;
         }
 
-        //txtScheduleList.Visible = false;
-        //txtScheduleList.Attributes.Add("OnClick", "txtScheduleList_Clicked");
         sqlConn = new SqlConnection(
           "Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
-        lblTitle.Text = $"{provider}'s Calendar";
+        lbltitle.Text = $"{provider}'s Calendar";
         fillMonth(dtView);
-        //initSchedule(dtView);
-        //fillSchedule(dtView);
         lblPickADay.Text = $"Click on a highlighted date to see {provider}'s schedule";
       }
     } // end Page_Load
@@ -100,121 +96,23 @@ namespace NewSchedule
           cell = tblMonth.Rows[row].Cells[col];
           Button btn = (Button)cell.Controls[0];
           btn.Text = xDate.Day.ToString();
-          btn.Font.Bold = false;
-          if (xDate.Month == first.Month) btn.Font.Bold = true;
+          btn.Font.Bold = false; 
+          btn.BackColor = Color.FromArgb(238, 238, 238); // light Gray
+          if (xDate.Month == first.Month)
+          {
+            btn.Font.Bold = true;
+            btn.BackColor = Color.FromArgb(194, 217, 240); // light Blue
+          }
           if (sch.Count > 0)
           {
             // the provider is available on this date. Color the background
-            btn.BackColor = Color.FromArgb(194, 217, 240);
+            btn.BackColor = Color.FromArgb(119, 154, 201); // dark blue
+            btn.ForeColor = Color.White;
           }
-
           xDate = xDate.AddDays(1);
         }
       }
     } // end fillMonth
-
-    //private void initSchedule(DateTime dt)
-    //{
-    //  DateTime dtSlot = dt;
-    //  TableRow row;
-    //  TableCell cell;
-    //  Button btn;
-
-    //  // remove previous rows
-    //  while (tblSchedule.Controls.Count > 0)
-    //  {
-    //    tblSchedule.Controls.RemoveAt(0);
-    //  }
-
-    //  // create table row for all schedule time slots
-    //  for (int idx = 0; idx < 34; idx++)
-    //  {
-    //    cell = new TableCell();
-    //    btn = new Button();
-    //    btn.CssClass = "SchedButton";
-    //    btn.Text = dtSlot.ToString("hh:mm tt");
-
-    //    cell.Controls.Add(btn);
-    //    cell.Width = new Unit("100%");
-    //    row = new TableRow();
-    //    row.Cells.Add(cell);
-    //    row.Width = new Unit("100%");
-    //    tblSchedule.Controls.Add(row);
-    //    dtSlot = dtSlot.AddMinutes(30);
-    //  }
-    //} // end initSchedule
-
-    //private void fillSchedule(DateTime dt)
-    //{
-    //  int idx;
-    //  string txt;
-    //  TableRow row;
-    //  TableCell cell;
-    //  Button btn;
-    //  string sFindTime, sSchedTime;
-    //  DateTime dtSlot = new DateTime(dt.Year, dt.Month, dt.Day, 7, 0, 0);
-    //  dtView = dt;
-
-    //  // mark all available slots in schedule
-    //  List<CalendarItem> sch = GetScheduleByDay(provider, dt, "A");
-    //  foreach (CalendarItem itema in sch)
-    //  {
-    //    sFindTime = itema.apptTime.ToString("hh:mm tt");
-    //    initSchedule(dtSlot);
-    //    // find a matching slot in the table
-    //    for (idx = 0; idx < tblSchedule.Rows.Count; idx++)
-    //    {
-    //      row = tblSchedule.Rows[idx];
-    //      cell = row.Cells[0];
-    //      btn =(Button)cell.Controls[0];
-    //      if (!string.IsNullOrEmpty(btn.Text))
-    //      {
-    //        sSchedTime = btn.Text.Substring(0, 8);
-    //        if (sFindTime == sSchedTime)
-    //        {
-    //          btn.Text+= " - Available @ " + itema.location;
-    //          tblSchedule.Rows[idx].Cells[0].Controls.RemoveAt(0);
-    //          tblSchedule.Rows[idx].Cells[0].Controls.Add(btn);
-    //          tblSchedule.Rows[idx].BackColor = Color.FromArgb(220, 252, 220); // Light Green
-    //          break;
-    //        }
-    //      }
-    //    }
-    //  }
-    //  //for (int q=0; q < 15; q++)
-    //  //{
-    //  //  string s = tblSchedule.Rows[q].Cells[0].Text;
-    //  //  int qq = 0;
-    //  //}
-
-    //  //// mark all the pending slots
-    //  //sch = GetScheduleByDay(provider, dt, "P");
-    //  //foreach (CalendarItem itemp in sch)
-    //  //{
-    //  //  idx = FindSlotIndex(itemp.apptTime);
-    //  //  if (idx >= 0)
-    //  //  {
-    //  //    appendToLine(idx, $" - Pending @ {itemp.location}");
-    //  //    //lstSchedule.Items[idx].Text += " - Pending @ " + itemp.location;
-    //  //    //lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#EED62B");
-    //  //  }
-    //  //}
-
-    //  //// mark the booked slots
-    //  //sch = GetScheduleByDay(provider, dt, "B");
-    //  //foreach (CalendarItem itemb in sch)
-    //  //{
-    //  //  idx = FindSlotIndex(itemb.apptTime);
-    //  //  if (idx >= 0)
-    //  //  {
-    //  //    appendToLine(idx, $" - Booked @ {itemb.location}");
-    //  //    //lstSchedule.Items[idx].Text += " - Booked @ " + itemb.location;
-    //  //    //lstSchedule.Items[idx].Attributes.Add("Style", "background-color:#FF9393");
-    //  //  }
-    //  //}
-
-    //  //lstSchedule.SelectedIndex = -1;
-    //} // end fillSchedule
 
     private List<CalendarItem> GetScheduleByDay(string provider, DateTime day, string status)
     {
@@ -262,60 +160,28 @@ namespace NewSchedule
       return sch;
     } // end GetScheduleByDay
 
-    //private int FindSlotIndex(DateTime thyme)
-    //{
-    //  string item;
-    //  string tym = thyme.ToString("hh:mm tt");
-    //  for (int idx = 0; idx < tblSchedule.Rows.Count; idx++)
-    //  {
-    //    if (!string.IsNullOrEmpty(tblSchedule.Rows[idx].Cells[0].Text))
-    //    {
-    //      item = tblSchedule.Rows[idx].Cells[0].Text.Substring(0, 8);
-    //      if (item == tym) return idx;
-    //    }
-    //  }
-    //  return -1;
-    //} // end FindSlotIndex
-
     protected void tblButton_Clicked(object sender, EventArgs e)
     {
       // come here whenever any date on calendar is clicked
       Button btn = (Button)sender;
       DateTime date;
-      string wrk;
-      int row, col;
+      int dy;
 
-      // get calendar row,col from button ID
-      wrk = btn.ID;
-      row = int.Parse(wrk.Substring(3, 1));
-      col = int.Parse(wrk.Substring(4, 1));
+      // get calendar day from button text
+      dy = int.Parse(btn.Text);
+      date = new DateTime(dtView.Year, dtView.Month, dy, 0, 0, 0);
 
       // check to see if date is highlighted
-      if (btn.BackColor == Color.FromArgb(194, 217, 240))
+      if (btn.BackColor == Color.FromArgb(119, 154, 201))
       {
         // Provider is available on this date. Go to day.aspx to show her schedule
-        date = dates[row, col];
         Response.Redirect($"day.aspx?user={provider}&date={date}");
       }
     } // end tblButton_Clicked
 
-    //protected void txtScheduleList_Clicked(object sender, EventArgs e)
-    //{
-    //  string wrk;
-    //  ListBox lb = (ListBox)sender;
-    //  DateTime date = dtView; // date for currently viewable schedule
-
-    //  // time from lstSchedule into date
-    //  wrk = lb.Text.Substring(0, 9);
-    //  DateTime time = DateTime.Parse(wrk);
-    //  date = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
-    //  // go to page for booking an appointment
-    //  Response.Redirect($"bookit.aspx?user={provider}&date={date.ToString("yyyyMMdd HH:mm")}");
-    //} // end lstSchedule_Clicked
-
     protected void btnAdmin_Clicked(object sender, EventArgs e)
     {
-      Response.Redirect($"bookit.aspx?user={provider}&date={dtView.ToString()}");
+      Response.Redirect($"login.aspx?user={provider}&date={dtView.ToString()}");
     } // end btnAdmin_Clicked
 
     private struct CalendarItem
@@ -331,10 +197,5 @@ namespace NewSchedule
       public DateTime apptDate;
       public DateTime apptTime;
     } // end CalendarItem
-
-    protected void txtSched_Event(object sender, EventArgs e)
-    {
-      int i = 0;
-    }
   }
 }
