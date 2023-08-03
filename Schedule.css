@@ -23,25 +23,26 @@
 }
 #divtopbar{
   width: 99%;
-  height: 1.4em;
-  font-size: 1em;
+  height: 1.8em;
+  font-size: 1.2em;
   text-align:left;
+  vertical-align: middle;
   padding: 0px 12px 0px 0px;
   background-color: #C2D9F0;
   border-bottom: 1px solid black;
 }
 #divcalendar {
   width: 99%;
-  height: 80%;
+  height: 50%;
 }
-#divpickaday {
+#divchoices {
   text-align: center;
-  font-size: 1em;
 }
 #divadmin {
   width: 99%;
   height: 100%;
   text-align: center;
+  font-size: 1.6em;
 }
 #tblMonth {
   padding: 0;
@@ -68,28 +69,57 @@
 #lbltitle {
   margin-left: 20px;
 }
+#lbltitle, #lblViewDate {
+  vertical-align: middle;
+}
 #btnArrowLeft, #btnArrowRight {
   height: 1.8em;
   position: relative;
   top: 4px;
+}
+#lblPickADay, #btnAdmin {
+  text-align: center;
+  font-size: 1.2em;
 }
 #btnAdmin {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+#txtAdminName, #txtAdminPassword {
+  font-size: 1em;
+}
 
-/*@media screen and (max-width: 1440px){
-  html, body { font-size: 2em; }
+@media screen and (max-width: 1440px) {
+  html, body {
+    font-size: 1.2em;
+  }
 
+  #divtopbar {
+    height: 3em;
+  }
+
+  #divadmin {
+    font-size: 2em;
+  }
   #btnArrowLeft, #btnArrowRight {
     height: 3.2em;
     position: relative;
     top: 4px;
   }
-  #btnAdmin { font-size: 1.2em; }
 
-  #lblSchedule, #lblHowToBook { font-size: 1.0em; }
+  #btnAdmin {
+    font-size: 2em;
+  }
+
+  #txtAdminName, #txtAdminPassword {
+    font-size: 3em;
+  }
+
+  #lblSchedule {
+    font-size: 1.0em;
+  }
+
   #tblSchedule {
     position: relative;
     left: calc(50% - 400px);
@@ -97,4 +127,12 @@
     height: 300px;
     font-size: .4em;
   }
-}*/
+
+  #lbltitle, #lblViewDate {
+    font-size: 2em;
+  }
+
+  #lblPickADay {
+    text-align: center;
+    font-size: 2.5em;
+  }

@@ -27,6 +27,8 @@
           </asp:TableCell>
         </asp:TableRow>
       </asp:Table>
+      <br/><br/>
+      <asp:Button ID="btnLogin" runat="server" Text="LOGIN" OnClick="btnLogin_Clicked"/>
     </div>
   </form>
 </body>

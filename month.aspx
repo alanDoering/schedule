@@ -44,7 +44,6 @@
           <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
           <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
           <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
-          <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton"/></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow CssClass="tblrow" runat="server">
           <asp:TableCell CssClass="tblcell" runat="server"><asp:Button runat="server" Cssclass="tblbutton" OnClick="tblButton_Clicked"/></asp:TableCell>
@@ -84,7 +83,7 @@
         </asp:TableRow>
       </asp:Table>
     </div>
-    <div id="divpickaday">
+    <div id="choices" style="width: 100%; text-align: center;">
       <br />
       <asp:Label ID="lblPickADay" runat="server"/>
       <br/><br/>

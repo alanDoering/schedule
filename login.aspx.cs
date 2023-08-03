@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,7 +30,12 @@ namespace NewSchedule
           return;
         }
         lbltitle.Text = $"{provider}'s Admin Login";
+        txtAdminName.Text = provider;
       }
-    }
+    } // end Page_Load
+    protected void btnLogin_Clicked(object sender, EventArgs e)
+    {
+      Response.Redirect($"admin.aspx?user={provider}");
+    } // end btnLogin_Clicked
   }
 }
