@@ -8,13 +8,13 @@
 <body>
   <form id="form1" runat="server">
     <div id="divtopbar">
-        <asp:Label ID="lbltitle" runat="server" Text="view date"/>
-        &nbsp;&nbsp;
-        <asp:ImageButton ID="btnArrowLeft" runat="server" ImageUrl="Images/Arrow-Left.png" OnClick="ArrowLeft_Clicked"/>
-        &nbsp;
-        <asp:Label ID="lblViewDate" runat="server" Text="view date"/>
-        &nbsp;
-        <asp:ImageButton ID="btnArrowRight" runat="server" ImageUrl="Images/Arrow-Right.png" OnClick="ArrowRight_Clicked" />
+      <asp:Label ID="lbltitle" runat="server" Text="view date"/>
+      &nbsp;&nbsp;
+      <asp:ImageButton ID="btnArrowLeft" runat="server" ImageUrl="Images/Arrow-Left.png" OnClick="ArrowLeft_Clicked"/>
+      &nbsp;
+      <asp:Label ID="lblViewDate" runat="server" Text="view date"/>
+      &nbsp;
+      <asp:ImageButton ID="btnArrowRight" runat="server" ImageUrl="Images/Arrow-Right.png" OnClick="ArrowRight_Clicked" />
     </div>
    <div id="divcalendar">
       <asp:Table ID="tblMonth" runat="server">
