@@ -1,8 +1,9 @@
-﻿html,body {
+﻿html, body {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: antiquewhite;
   font-family: calibri, arial, 'sans serif';
   font-size: 1.2em;
 }
