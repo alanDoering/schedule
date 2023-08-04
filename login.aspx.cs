@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace NewSchedule
 {
@@ -35,6 +30,41 @@ namespace NewSchedule
     } // end Page_Load
     protected void btnLogin_Clicked(object sender, EventArgs e)
     {
+      string pwd;
+      string sCmd = $"SELECT * From providers WHERE Name='{provider}'";
+      SqlConnection sqlConn = new SqlConnection("Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
+      sqlConn.Open();
+      SqlCommand cmd = new SqlCommand(sCmd, sqlConn);
+      SqlDataReader rdr = cmd.ExecuteReader();
+      if (!rdr.Read())
+      {
+        // read  failed
+        loginError.Text = "Login failed. Provider not found";
+        txtAdminName.Focus();
+        return;
+      }
+      var p = rdr["Password"];
+      if (!rdr.IsClosed) rdr.Close();
+      if (p==null)
+      {
+        loginError.Text = "Login failed. Password not found";
+        txtAdminPassword.Focus();
+        return;
+      }
+      pwd = p.ToString();
+      if (string.IsNullOrEmpty(pwd))
+      {
+        loginError.Text = "Login failed. Password not found";
+        txtAdminPassword.Focus();
+        return;
+      }
+      if (pwd!=txtAdminPassword.Text)
+      {
+        loginError.Text = "Login failed. Password is invalid";
+        txtAdminPassword.Focus();
+        return;
+      }
+
       Response.Redirect($"admin.aspx?user={provider}");
     } // end btnLogin_Clicked
   }

@@ -55,8 +55,6 @@ namespace NewSchedule
           bProtectDate = true;
         }
 
-        sqlConn = new SqlConnection(
-          "Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
         lbltitle.Text = $"{provider}'s Calendar";
         fillMonth(dtView);
@@ -120,10 +118,8 @@ namespace NewSchedule
       List<CalendarItem> sch = new List<CalendarItem>();
       CalendarItem itm;
 
-      string sCmd =
-        $"SELECT * From calendar WHERE provider='{provider}' and apptDate='{day.ToString("yyyyMMdd")}' and status='{status}' ORDER BY apptTime";
-      sqlConn = new SqlConnection(
-        "Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
+      string sCmd =$"SELECT * From calendar WHERE provider='{provider}' and apptDate='{day.ToString("yyyyMMdd")}' and status='{status}' ORDER BY apptTime";
+      sqlConn = new SqlConnection("Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
       sqlConn.Open();
       SqlCommand cmd = new SqlCommand(sCmd, sqlConn);
       SqlDataReader rdr = cmd.ExecuteReader();
