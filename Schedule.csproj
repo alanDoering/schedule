@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B696BD7D-F835-4B38-B374-3AF14B4060F9}</ProjectGuid>
+    <ProjectGuid>{4B94DF1E-FEF3-40D4-9087-3373187E9A44}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NewSchedule</RootNamespace>
-    <AssemblyName>NewSchedule</AssemblyName>
+    <RootNamespace>schedule</RootNamespace>
+    <AssemblyName>schedule</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44334</IISExpressSSLPort>
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -67,42 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin.aspx" />
-    <Content Include="bookit.aspx" />
-    <Content Include="day.aspx" />
     <Content Include="default.aspx" />
     <Content Include="fatal.aspx" />
+    <Content Include="log.aspx" />
     <Content Include="login.aspx" />
     <Content Include="month.aspx" />
-    <Content Include="Images\Arrow-Left.png" />
-    <Content Include="Images\Arrow-Right.png" />
-    <Content Include="Images\SkullAndBones.png" />
-    <Content Include="Images\UnderConstruction.png" />
-    <Content Include="Schedule.css" />
+    <Content Include="images\Arrow-Left.png" />
+    <Content Include="images\Arrow-Right.png" />
+    <Content Include="images\SkullAndBones.png" />
+    <Content Include="images\UnderConstruction.png" />
+    <Content Include="schedule.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="bookit.aspx.cs">
-      <DependentUpon>bookit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="bookit.aspx.designer.cs">
-      <DependentUpon>bookit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="day.aspx.cs">
-      <DependentUpon>day.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="day.aspx.designer.cs">
-      <DependentUpon>day.aspx</DependentUpon>
-    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -111,11 +88,18 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="fatal.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>fatal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="fatal.aspx.designer.cs">
       <DependentUpon>fatal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="log.aspx.cs">
+      <DependentUpon>log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="log.aspx.designer.cs">
+      <DependentUpon>log.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -132,12 +116,24 @@
       <DependentUpon>month.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="schedule.Master.cs">
+      <DependentUpon>schedule.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="schedule.Master.designer.cs">
+      <DependentUpon>schedule.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Design-Notes.docx" />
     <None Include="packages.config" />
+    <Content Include="schedule.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -151,9 +147,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>65475</DevelopmentServerPort>
+          <DevelopmentServerPort>61053</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44334/</IISUrl>
+          <IISUrl>https://localhost:44340/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

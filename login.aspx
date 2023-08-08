@@ -1,40 +1,30 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="NewSchedule.login" %>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-  <title>Schedule</title>
-  <link href="Schedule.css" rel="stylesheet" />
-</head>
-<body>
-  <form id="form1" runat="server">
-    <div id="divtopbar">
-      <asp:Label ID="lbltitle" runat="server" Text="view date"/>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/schedule.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="schedule.login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<link href="schedule.css" rel="stylesheet" />
+  <div id="divtopbar">
+    <asp:Label ID="lblLoginTitle" runat="server" Text="view date"/>
+  </div>
+  <div id="divlogin" style="text-align:center; width: 100%;">
+    <br />
+    <asp:Label ID="lblNameAndPassword" runat="server" Text="Label" Style="color: white; font-size: 1.2em;"/>
+    <br /><br />
+    <div id="logName"">
+      <asp:TextBox ID="txtAdminName" runat="server" Width="300px"/>
     </div>
-    <div id="divlogin" style="text-align:center; width: 100%;">
-      <br /><br />
-      Please enter your Name and Password
-      <br /><br />
-      <asp:Table ID="tbllogin" runat="server" width="100%">
-        <asp:TableRow runat="server" width="100%">
-          <asp:TableCell runat="server" style="width:45%; text-align:right;">
-            Name:&nbsp;
-          </asp:TableCell>
-          <asp:TableCell runat="server" Style="text-align:left;">
-            <asp:TextBox ID="txtAdminName" runat="server" Width="300px"></asp:TextBox></asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow runat="server" width="100%">
-          <asp:TableCell runat="server" style="text-align:right;">
-            Password:&nbsp;
-          </asp:TableCell>
-          <asp:TableCell runat="server" style="text-align:left;">
-            <asp:TextBox ID="txtAdminPassword" runat="server" Width="200px" TextMode="Password"></asp:TextBox>
-          </asp:TableCell>
-        </asp:TableRow>
-      </asp:Table>
-      <br/><br/>
-      <asp:Label ID="loginError" runat="server" ForeColor="Red" Font-Bold="True" /><br />
-      <asp:Button ID="btnLogin" runat="server" Text="LOGIN" OnClick="btnLogin_Clicked"/>
+    <div>
+      <asp:Label ID="lblAdminNameCaption" runat="server" Style="color: white; font-size: 1.2em;"/>
     </div>
-  </form>
-</body>
-</html>
+    <br />
+    <div id="logPassword"">
+      <asp:TextBox ID="txtAdminPassword" runat="server" Width="200px" TextMode="Password"/>
+    </div>
+    <div>
+      <asp:Label ID="lblAdminPasswordCaption" runat="server" Style="color: white; font-size: 1.2em;"/>
+    </div>
+    <br/>
+    <asp:Label ID="loginError" runat="server" ForeColor="Red" Font-Bold="True" /><br />
+    <asp:Button ID="btnLogin" runat="server" Text="LOGIN" OnClick="btnLogin_Clicked"/>
+    &nbsp;&nbsp;
+    <asp:Button ID="btnCancel" runat="server" Text="CANCEL" OnClick="btnCancel_Clicked"/>
+  </div>
+</asp:Content>

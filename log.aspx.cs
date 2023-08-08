@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace schedule
+namespace NewSchedule
 {
   public partial class login : System.Web.UI.Page
   {
@@ -14,7 +9,6 @@ namespace schedule
 
     protected void Page_Load(object sender, EventArgs e)
     {
-      Label lblT = (Label)Page.Master.FindControl("lblTitle");
       if (!IsPostBack)
       {
         var vr = Request.QueryString["user"];
@@ -30,7 +24,7 @@ namespace schedule
           Response.Redirect("fatal.aspx?reason=Missing provider name");
           return;
         }
-        lblT.Text = $"Administrator Login";
+        lblLoginTitle.Text = $"{provider}'s Admin Login";
         txtAdminName.Text = provider;
         lblNameAndPassword.Text = "Please enter your Name and Password";
         lblAdminNameCaption.Text = "Name";

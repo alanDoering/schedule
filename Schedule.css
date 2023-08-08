@@ -1,137 +1,105 @@
 ﻿html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
   padding: 0;
-  background-color: antiquewhite;
-  font-family: calibri, arial, 'sans serif';
-  font-size: 1.2em;
-}
-.tblbutton {
-  height: 100%;
-  width: 100%;
   margin: 0;
-  padding: 0;
-  font-size: 1.4em;
+  width: 100%;
+  height: 100%;
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 1em;
+  background-color: black;
 }
 #form1 {
+  width: 97.5%;
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#container{
+  width: 100%;
+  height: 100%;
+}
+#topbar {
+  vertical-align: middle;
+  background-color: #C2D9F0;
+  padding: 0;;
+  height: 2.4em;
   width: 100%;
 }
-#divtopbar{
-  width: 99%;
+#topcontent {
+  display: block;
+  width: 100%;
   height: 1.8em;
-  font-size: 1.2em;
-  text-align:left;
+  text-align: center;
   vertical-align: middle;
-  padding: 0px 12px 0px 0px;
+  position: relative;
+  top: 20%;
+}
+#divDateAndArrows {
+  width: 100%;
   background-color: #C2D9F0;
-  border-bottom: 1px solid black;
+  text-align: center;
+}
+#lbltitle {
+  margin: 0 12px 0 20px;
+  font-size: 1.5em;
+}
+#arrowLeft, #arrowRight {
+  position: relative;
+  top: 6px;
+}
+#ContentPlaceHolder1 {
+  background-color: lightgreen;
+  width: 100%;
+  height: 100%;
 }
 #divcalendar {
-  width: 99%;
+  display: block;
+  background-color: lightsteelblue;
+  width: 100%;
   height: 50%;
 }
-#divchoices {
-  text-align: center;
-}
-#divadmin {
-  width: 99%;
-  height: 100%;
-  text-align: center;
-  font-size: 1.6em;
-}
-#tblMonth {
+#tblmonth {
+  background-color: lightblue;
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 100% !important;
   font-size: 1em;
 }
 .tblheader {
-  height: 30px;
+  width: 100%;
+  height: 2em;
   background-color: #779AC9;
   color: White;
   font-size: 1em;
 }
+
 .tblrow {
-  width: 100%;
-  height: 40px;
+  width: 100% !important;
+  height: 16% !important;
 }
 .tblcell {
   text-align: center;
-  width: 14%;
-  height: 16%;
+  height: 100% !important;
 }
-#lbltitle {
-  margin-left: 20px;
+.tblbutton {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0;
+  padding: 0;
+  font-size: 1.4em;
 }
-#lbltitle, #lblViewDate {
-  vertical-align: middle;
-}
-#btnArrowLeft, #btnArrowRight {
-  height: 1.8em;
-  position: relative;
-  top: 4px;
-}
-#lblPickADay {
-  text-align: center;
-  font-size: 1.2em;
-}
-#btnAdmin {
+#divChoices {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1em;
-}
-#btnLogin {
-  font-size: 0.8em;
-}
-#txtAdminName, #txtAdminPassword {
-  font-size: 1em;
 }
 
 @media screen and (max-width: 1440px) {
-  html, body {
-    font-size: 1.2em;
-  }
-
-  #divtopbar {
-    height: 3em;
-  }
-
-  #lbltitle {
-    margin-left: 40px;
-  }
-
-  #divlogin {
-    width: 100%;
-    font-size: 2em;
-  }
-
-  #btnArrowLeft, #btnArrowRight {
-    height: 3.2em;
-    position: relative;
-    top: 4px;
-  }
-
-  #btnAdmin, #btnLogin {
-    font-size: 1.8em;
-  }
-
-  #txtAdminName {
-    width: 950px;
-    font-size: 1em;
-  }
-  #txtAdminPassword {]
-    width: 880px;
-    font-size: 1em;
-  }
-  #lbltitle, #lblViewDate {
-    font-size: 2em;
-  }
-  #lblPickADay {
-    text-align: center;
-    font-size: 2.5em;
+  #divcalendar {
+    height: 35%;
   }
 }
+@media screen and (max-width: 760px) {
+  #divcalendar {
+    height: 20%;
+  }
+}
+

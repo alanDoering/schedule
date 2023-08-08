@@ -1,5 +1,4 @@
-﻿using Schedule;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -10,7 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.XPath;
 
-namespace NewSchedule
+namespace Schedule
 {
   public partial class _month : System.Web.UI.Page
   {
@@ -18,10 +17,11 @@ namespace NewSchedule
     private static bool bProtectDate = false;
     private static string provider;
     private static DateTime dtView;
-    private static DateTime[,] dates = new DateTime[7, 7];
+    //private static DateTime[,] dates = new DateTime[7, 7];
 
     protected void Page_Load(object sender, EventArgs e)
     {
+      Label lblT = (Label)Page.Master.FindControl("lblTitle");
       if (!IsPostBack)
       {
         var vr = Request.QueryString["user"];
@@ -56,28 +56,11 @@ namespace NewSchedule
         }
 
         lblViewDate.Text = dtView.ToString("MMM, yyyy");
-        lbltitle.Text = $"{provider}'s Calendar";
+        lblT.Text = $"{provider}'s Calendar";
         fillMonth(dtView);
         lblPickADay.Text = $"Click on a highlighted date to see {provider}'s schedule";
       }
     } // end Page_Load
-
-    protected void ArrowLeft_Clicked(object sender, ImageClickEventArgs e)
-    {
-      dtView = dtView.AddMonths(-1);
-      lblViewDate.Text = dtView.ToString("MMM, yyyy");
-      fillMonth(dtView);
-      //fillSchedule(dtView);
-    } // end ArrowLeft_Clicked
-
-    protected void ArrowRight_Clicked(object sender, ImageClickEventArgs e)
-    {
-      dtView = dtView.AddMonths(1);
-      lblViewDate.Text = dtView.ToString("MMM, yyyy");
-      fillMonth(dtView);
-      //fillSchedule(dtView);
-    } // end ArrowRight_Clicked
-
     private void fillMonth(DateTime dt)
     {
       List<CalendarItem> sch;
@@ -89,13 +72,14 @@ namespace NewSchedule
       {
         for (int col = 0; col < 7; col++)
         {
-          dates[row, col] = xDate;
+          //dates[row, col] = xDate;
           sch = GetScheduleByDay(provider, xDate, "A");
-          cell = tblMonth.Rows[row].Cells[col];
+          cell = tblmonth.Rows[row].Cells[col];
           Button btn = (Button)cell.Controls[0];
           btn.Text = xDate.Day.ToString();
-          btn.Font.Bold = false; 
+          btn.Font.Bold = false;
           btn.BackColor = Color.FromArgb(238, 238, 238); // light Gray
+          btn.ForeColor = Color.Black;
           if (xDate.Month == first.Month)
           {
             btn.Font.Bold = true;
@@ -111,14 +95,13 @@ namespace NewSchedule
         }
       }
     } // end fillMonth
-
     private List<CalendarItem> GetScheduleByDay(string provider, DateTime day, string status)
     {
       // return a list of calendar items for specified day and desired status
       List<CalendarItem> sch = new List<CalendarItem>();
       CalendarItem itm;
 
-      string sCmd =$"SELECT * From calendar WHERE provider='{provider}' and apptDate='{day.ToString("yyyyMMdd")}' and status='{status}' ORDER BY apptTime";
+      string sCmd = $"SELECT * From calendar WHERE provider='{provider}' and apptDate='{day.ToString("yyyyMMdd")}' and status='{status}' ORDER BY apptTime";
       sqlConn = new SqlConnection("Server=mi3-wsq1.my-hosting-panel.com;Database=alans_schedule;User Id=alansched;Password=Syzygy4043!");
       sqlConn.Open();
       SqlCommand cmd = new SqlCommand(sCmd, sqlConn);
@@ -147,7 +130,6 @@ namespace NewSchedule
         {
           DateTime.TryParse(vr.ToString(), out itm.apptTime);
         }
-
         sch.Add(itm);
       }
 
@@ -155,7 +137,6 @@ namespace NewSchedule
       sqlConn.Close();
       return sch;
     } // end GetScheduleByDay
-
     protected void tblButton_Clicked(object sender, EventArgs e)
     {
       // come here whenever any date on calendar is clicked
@@ -174,11 +155,23 @@ namespace NewSchedule
         Response.Redirect($"day.aspx?user={provider}&date={date}");
       }
     } // end tblButton_Clicked
-
     protected void btnAdmin_Clicked(object sender, EventArgs e)
     {
       Response.Redirect($"login.aspx?user={provider}&date={dtView.ToString()}");
     } // end btnAdmin_Clicked
+    protected void ArrowLeft_Clicked(object sender, ImageClickEventArgs e)
+    {
+      dtView = dtView.AddMonths(-1);
+      lblViewDate.Text = dtView.ToString("MMM, yyyy");
+      fillMonth(dtView);
+    } // end ArrowLeft_Clicked
+
+    protected void ArrowRight_Clicked(object sender, ImageClickEventArgs e)
+    {
+      dtView = dtView.AddMonths(1);
+      lblViewDate.Text = dtView.ToString("MMM, yyyy");
+      fillMonth(dtView);
+    } // end ArrowRight_Clicked
 
     private struct CalendarItem
     {

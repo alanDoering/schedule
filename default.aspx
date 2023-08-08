@@ -1,14 +1,3 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="NewSchedule._default1" %>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-  <title>Schedule</title>
-  <link href="Schedule.css" rel="stylesheet" />
-</head>
-<body>
-  <form id="form1" runat="server">
-    <div>
-    </div>
-  </form>
-</body>
-</html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/schedule.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="schedule._default" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>

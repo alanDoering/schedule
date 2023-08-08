@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace NewSchedule
+namespace schedule
 {
-  public partial class _default1 : System.Web.UI.Page
+  public partial class _default : System.Web.UI.Page
   {
     private string provider;
     private DateTime dtView = DateTime.Now;
@@ -31,5 +30,5 @@ namespace NewSchedule
         return;
       }
     } // end Page_Load
-  } // end partial class _default1
-} // end namespace
+  }
+}
