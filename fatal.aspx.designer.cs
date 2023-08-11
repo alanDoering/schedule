@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Schedule
+namespace schedule
 {
 
 
@@ -24,12 +24,12 @@ namespace Schedule
     protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
     /// <summary>
-    /// message control.
+    /// fatalMessage control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label message;
+    protected global::System.Web.UI.WebControls.Label fatalMessage;
   }
 }

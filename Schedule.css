@@ -13,93 +13,52 @@
   margin-left: auto;
   margin-right: auto;
 }
-#container{
+#divContainer{
   width: 100%;
   height: 100%;
 }
-#topbar {
+#divTopbar {
   vertical-align: middle;
+  text-align: center;
   background-color: #C2D9F0;
   padding: 0;;
   height: 2.4em;
   width: 100%;
 }
-#topcontent {
-  display: block;
-  width: 100%;
-  height: 1.8em;
-  text-align: center;
-  vertical-align: middle;
-  position: relative;
-  top: 20%;
-}
-#divDateAndArrows {
-  width: 100%;
-  background-color: #C2D9F0;
-  text-align: center;
-}
 #lbltitle {
-  margin: 0 12px 0 20px;
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
-#arrowLeft, #arrowRight {
-  position: relative;
-  top: 6px;
+#fatalMessage {
+  font-size: 1.6em;
 }
-#ContentPlaceHolder1 {
-  background-color: lightgreen;
+#divCalendar {
   width: 100%;
-  height: 100%;
-}
-#divcalendar {
-  display: block;
-  background-color: lightsteelblue;
-  width: 100%;
-  height: 50%;
-}
-#tblmonth {
-  background-color: lightblue;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100% !important;
-  font-size: 1em;
-}
-.tblheader {
-  width: 100%;
-  height: 2em;
-  background-color: #779AC9;
-  color: White;
-  font-size: 1em;
-}
-
-.tblrow {
-  width: 100% !important;
-  height: 16% !important;
-}
-.tblcell {
+  height: 80%;
   text-align: center;
-  height: 100% !important;
 }
-.tblbutton {
-  height: 100% !important;
-  width: 100% !important;
-  margin: 0;
-  padding: 0;
-  font-size: 1.4em;
+#mainCalendar {
+  width: 100%;
+  height: 90%;
 }
-#divChoices {
-  display: block;
+#lblPickDay {
+  font-size: 1.2em;
+  color: white;
 }
 
 @media screen and (max-width: 1440px) {
-  #divcalendar {
-    height: 35%;
+  #topbar {
+    height: 1.8em;
   }
-}
-@media screen and (max-width: 760px) {
-  #divcalendar {
-    height: 20%;
+  #divCalendar {
+    height: 30%;
   }
 }
 
+@media screen and (max-width: 760px) {
+  #lbltitle {
+    font-size: 1.2em;
+  }
+  #divCalendar {
+    height: 12%;
+  }
+}

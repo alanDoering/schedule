@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services.Description;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
-namespace Schedule
+namespace schedule
 {
   public partial class fatal : System.Web.UI.Page
   {
@@ -9,11 +15,11 @@ namespace Schedule
       var p = Request.QueryString["reason"];
       if (p == null)
       {
-        message.Text = "Unknown reason.";
+        fatalMessage.Text = "Fatal Error: Unknown reason.";
       }
       else
       {
-        message.Text= p.ToString(); 
+        fatalMessage.Text = "Fatal Error: " +p.ToString();
       }
     }
   }
